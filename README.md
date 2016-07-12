@@ -10,7 +10,7 @@ This document describes the functionality provided by the xld ocker gradle plugi
 
 [xld-docker-gradle-travis-image]: https://travis-ci.org/xebialabs-community/xld-docker-gradle-plugin.svg?branch=master
 [xld-docker-gradle-travis-url]: https://travis-ci.org/xebialabs-community/xld-docker-gradle-plugin
-[xld-docker-gradle-codacy-image]: https://api.codacy.com/project/badge/Grade/845a5c0ceff748c38df1dc7640f37e9c
+[xld-docker-gradle-codacy-image]: https://api.codacy.com/project/badge/Grade/9e735dc2f73e40b3a9295b9fe9f8df31
 [xld-docker-gradle-codacy-url]: https://www.codacy.com/app/joris-dewinne/xld-docker-gradle-plugin
 [xld-docker-gradle-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xld-docker-gradle-plugin/badges/gpa.svg
 [xld-docker-gradle-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xld-docker-gradle-plugin
