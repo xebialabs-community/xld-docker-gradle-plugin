@@ -4,7 +4,7 @@
 cp /data/build/distributions/*.xldp /opt/xld/server/plugins
 
 # Link `ext` folder
-ln -s -f /data/src/main/resources /opt/xld/server/ext
+find /data/src/main/resources -maxdepth 1 -mindepth 1 -type d -exec ln -s -f '{}' /opt/xld/server/ext/ \;
 
 # Start XLD and
 # Run XLD CLI xld_initialize
@@ -25,10 +25,12 @@ do
     else
       sleep 4
       echo "Website is up"
-      /opt/xld/cli/bin/cli.sh -username admin -password admin -f /data/build/resources/test/docker/initialize/xld_initialize.py
-      res=$?
-      if [ $res != 0 ] ; then
-        exit $res
+      if [ -f /data/build/resources/test/docker/initialize/xld_initialize.py ]; then
+          /opt/xld/cli/bin/cli.sh -username admin -password admin -f /data/build/resources/test/docker/initialize/xld_initialize.py
+          res=$?
+          if [ $res != 0 ] ; then
+            exit $res
+          fi
       fi
       sleep 4
       exit
