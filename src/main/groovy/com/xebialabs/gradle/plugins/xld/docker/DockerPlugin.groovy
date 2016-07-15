@@ -12,12 +12,12 @@ class DockerPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         // Apply the base plugin to get cleaning behaviour
-        project.apply plugin: "java"
+        project.apply plugin: "base"
 
         DockerPluginExtension dockerPluginExtension = project.extensions.create("xldDocker", DockerPluginExtension)
 
         project.afterEvaluate {
-            Task compileTask = createDockerTask(project, COMPILE_DOCKER_TASK_NAME, ["run", "-p", "4516:4516", "-v", project.getRootDir().absolutePath + ":/data", "xebialabs/xld_dev_compile:"+dockerPluginExtension.version])
+            Task compileTask = createDockerTask(project, COMPILE_DOCKER_TASK_NAME, ["run", "-v", project.getRootDir().absolutePath + ":/data", "xebialabs/xld_dev_compile:"+dockerPluginExtension.version])
             Task runTask = createDockerTask(project, RUN_DOCKER_TASK_NAME, ["run", "-p", "4516:4516", "-v", project.getRootDir().absolutePath + ":/data", "-v", System.getProperty("user.home") + "/xl-licenses:/license", "xebialabs/xld_dev_run:"+dockerPluginExtension.version])
             runTask.dependsOn compileTask
         }
@@ -28,7 +28,7 @@ class DockerPlugin implements Plugin<Project> {
         return project.tasks.create(taskName, Exec).configure {
             executable "docker"
             args(taskArgs)
-            workingDir project.getBuildDir()
+            workingDir project.getProjectDir()
         }
     }
 }
