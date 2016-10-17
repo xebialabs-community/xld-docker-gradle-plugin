@@ -1,6 +1,6 @@
 # Preface #
 
-This document describes the functionality provided by the xld ocker gradle plugin.
+This document describes the functionality provided by the xld docker gradle plugin.
 
 # CI status #
 
@@ -32,7 +32,7 @@ Define on top of the `build.gradle` file:
 
 ```
 plugins {
-  id "com.xebialabs.xld.docker" version "1.0.0"
+  id "com.xebialabs.xld.docker" version "1.0.11"
 }
 ```
 
