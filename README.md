@@ -32,7 +32,7 @@ Define on top of the `build.gradle` file:
 
 ```
 plugins {
-  id "com.xebialabs.xld.docker" version "1.0.11"
+  id "com.xebialabs.xld.docker" version "1.1.0"
 }
 ```
 
@@ -45,9 +45,10 @@ For the latest version of the plugin have a look at:
 You can make use of the following gradle tasks
 
 * `compileDocker`
-    * `version`: specifies which version of the XLD image to use. Default: 5.5.1.1
+    * `compileVersion`: specifies which version of the [XLD image](https://hub.docker.com/r/xebialabs/xld_dev_compile/tags/) to use.
 * `runDocker`
-    * `version`: specifies which version of the XLD image to use. Default: 5.5.1.1
+    * `compileVersion`: specifies which version of the [XLD compile image](https://hub.docker.com/r/xebialabs/xld_dev_compile/tags/) to use.
+    * `runVersion`: specifies which version of the [XLD run image](https://hub.docker.com/r/xebialabs/xld_dev_run/tags/) to use.
     * `xld_initialize.py`: If your project has a file `src/test/resources/docker/initialize/xld_initialize.py`, this will be run through the CLI. This allows you to create some dummy CI's for testing.
     * The `src/main/resources` folder will be linked into the XLD `ext` folder (so you don't have to restart on script changes)
 
