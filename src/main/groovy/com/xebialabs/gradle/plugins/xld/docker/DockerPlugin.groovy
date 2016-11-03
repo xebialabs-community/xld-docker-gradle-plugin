@@ -6,6 +6,7 @@ import org.gradle.api.Task
 import org.gradle.api.tasks.Copy
 import org.gradle.api.tasks.Delete
 import org.gradle.api.tasks.Exec
+import de.undercouch.gradle.tasks.download.Download
 
 class DockerPlugin implements Plugin<Project> {
     public static final String COMPILE_DOCKER_TASK_NAME = "compileDocker"
