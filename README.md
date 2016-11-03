@@ -32,7 +32,7 @@ Define on top of the `build.gradle` file:
 
 ```
 plugins {
-  id "com.xebialabs.xld.docker" version "1.1.0"
+  id "com.xebialabs.xld.docker" version "1.2.0"
 }
 ```
 
@@ -51,4 +51,23 @@ You can make use of the following gradle tasks
     * `runVersion`: specifies which version of the [XLD run image](https://hub.docker.com/r/xebialabs/xld_dev_run/tags/) to use.
     * `xld_initialize.py`: If your project has a file `src/test/resources/docker/initialize/xld_initialize.py`, this will be run through the CLI. This allows you to create some dummy CI's for testing.
     * The `src/main/resources` folder will be linked into the XLD `ext` folder (so you don't have to restart on script changes)
+* `runDockerCompose`
+    * A `docker-compose.yml` should be present under `src/test/resources/docker`
+    * This task depends on `compileDocker`
+* `stopDockerCompose`
+
+# Example #
+
+```
+xldDocker {
+  compileVersion = 'v5.5.5.4'
+  runVersion = 'v5.5.5.5'
+  download("xld_community_plugins") {
+    src(["https://github.com/xebialabs-community/xld-openshift-plugin/releases/download/v6.1.1/xld-openshift-plugin-6.1.1.xldp",
+         "https://github.com/xebialabs-community/xld-docker-plugin/releases/download/5.1.5/xld-docker-plugin-5.1.5.xldp"])
+    dest file("src/downloads/plugins")
+    acceptAnyCertificate true
+  }
+}
+```
 
