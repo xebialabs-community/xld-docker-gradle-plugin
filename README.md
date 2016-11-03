@@ -32,7 +32,7 @@ Define on top of the `build.gradle` file:
 
 ```
 plugins {
-  id "com.xebialabs.xld.docker" version "1.2.0"
+  id "com.xebialabs.xld.docker" version "1.2.1"
 }
 ```
 

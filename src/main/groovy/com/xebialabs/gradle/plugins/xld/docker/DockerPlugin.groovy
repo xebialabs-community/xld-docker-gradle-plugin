@@ -24,7 +24,7 @@ class DockerPlugin implements Plugin<Project> {
         project.apply plugin: "base"
         project.apply plugin: 'de.undercouch.download'
 
-        DockerPluginExtension dockerPluginExtension = project.extensions.create("xldDocker", DockerPluginExtension)
+        DockerPluginExtension dockerPluginExtension = project.extensions.create("xldDocker", DockerPluginExtension, project)
 
         project.afterEvaluate {
             defineDownloadTasks(project, dockerPluginExtension)
