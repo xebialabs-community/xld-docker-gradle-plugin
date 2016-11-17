@@ -1,3 +1,7 @@
+# DEPRECATED #
+
+Use the [xl-docker-gradle-plugin](https://github.com/xebialabs-community/xl-docker-gradle-plugin)
+
 # Preface #
 
 This document describes the functionality provided by the xld docker gradle plugin.
